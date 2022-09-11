@@ -1,14 +1,14 @@
 import java.io.File
 import kotlin.math.abs
 
-fun getDirectionsMap(): Map<Char, (Int) -> Int> {
+private fun getDirectionsMap(): Map<Char, (Int) -> Int> {
     return mapOf(
         'R' to {direction: Int -> (direction + 1) % 4},
         'L' to {direction: Int -> if (direction == 0) 3 else (direction - 1) % 4},
     )
 }
 
-fun getNewPos(xPos: Int, yPos: Int, facingDirection: Int, nBlocks: Int): Pair<Int, Int> {
+private fun getNewPos(xPos: Int, yPos: Int, facingDirection: Int, nBlocks: Int): Pair<Int, Int> {
     var newXPos = xPos
     var newYPos = yPos
     when (facingDirection) {
@@ -28,7 +28,7 @@ fun getNewPos(xPos: Int, yPos: Int, facingDirection: Int, nBlocks: Int): Pair<In
     return Pair(newXPos, newYPos)
 }
 
-fun partOne(inp: String): Int {
+private fun partOne(inp: String): Int {
     val directions = getDirectionsMap()
     var xPos = 0
     var yPos = 0
@@ -44,7 +44,7 @@ fun partOne(inp: String): Int {
     return abs(xPos) + abs(yPos)
 }
 
-fun newVisits(
+private fun newVisits(
     xPos: Int,
     yPos: Int,
     newXPos: Int,
@@ -79,7 +79,7 @@ fun newVisits(
     return -1
 }
 
-fun partTwo(inp: String): Int {
+private fun partTwo(inp: String): Int {
     val directions = getDirectionsMap()
     val visited = mutableSetOf(Pair(0, 0))
     var xPos = 0
