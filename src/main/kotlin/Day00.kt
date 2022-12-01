@@ -1,5 +1,9 @@
 import java.io.File
 
+private val test = """
+
+""".trimIndent()
+
 private fun partOne(inp: String): Int {
     return 0
 }
